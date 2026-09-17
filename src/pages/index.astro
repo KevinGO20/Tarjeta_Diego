@@ -74,11 +74,11 @@ import Easter from "../assets/easter.gif";
             url="https://wa.me/+51984206545"
           />
           <Red
-            name="zamora_0204"
+            name="Discord"
+            class="Discord"
             url="javascript:void(0);"
             color="linear-gradient(135deg, #5865f2 , #5e52ff)"
             icon={DiscordIcon}
-            className="Discord"
           />
         </div>
       </div>
@@ -89,25 +89,16 @@ import Easter from "../assets/easter.gif";
 <script>
   import Sonido from "../assets/audio_easter.mp3";
 
-  const discord = document.querySelector(".Discord");
-  const easter = document.querySelector(".easter");
-  const texto = document.querySelector(".Discord span");
-  const textoOriginal = texto?.textContent;
-
+  const discord = document.getElementsByClassName("Discord")[0];
+  const easter = document.getElementsByClassName("easter")[0];
   const sonido = new Audio(Sonido);
-  sonido.volume = 0.8;
-  easter?.addEventListener("click", function () {
+  sonido.volume = 0.3;
+  easter.addEventListener("click", function () {
     sonido.play();
   });
-  discord.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(textoOriginal);
-      texto.textContent = "Copiado!";
-      setTimeout(() => {
-        texto.textContent = textoOriginal;
-      }, 1000);
-    } catch {
-      texto.textContent = "Algo salio mal";
-    }
+
+  discord.addEventListener("click", () => {
+    console.log("test");
+    discord.textContent = "test";
   });
 </script>
