@@ -1,11 +1,104 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
+import "../styles/global.css";
+import Red from "../components/Red.astro";
+import SteamIcon from "../components/SteamIcon.astro";
+import FacebookIcon from "../components/FacebookIcon.astro";
+import WhatsappIcon from "../components/WhastappIcon.astro";
+import DiscordIcon from "../components/DiscordIcon.astro";
+import InstagramIcon from "../components/InstagramIcon.astro";
+import User from "../assets/User.webp";
+import Ubication from "../components/Ubication.astro";
+import Easter from "../assets/easter.gif";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagina de ego</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne+Tactile&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="tarjeta">
+        <div class="easter"><img src={Easter.src} /></div>
+        <a
+          class="ubicacion"
+          href="https://maps.app.goo.gl/9QgT6xo1WbgQeWVa6"
+          target="_blank"><Ubication /></a
+        >
+        <div class="perfil">
+          <div class="foto">
+            <img src={User.src} />
+          </div>
+
+          <p>Ego Zamora</p>
+          <p>Soy un vendedor de chocotejas</p>
+          <p>Tengo de todo tipo de chocotejas</p>
+        </div>
+        <div class="botones">
+          <Red
+            name="Steam"
+            url="https://steamcommunity.com/profiles/76561198813279446"
+            icon={SteamIcon}
+            color="linear-gradient(185deg, #00adee 0%, #171d25 60%, #000000 100%)"
+            target="_blank"
+          />
+          <Red
+            name="Facebook"
+            url="https://www.facebook.com/diegofrancisco.zamoraramirez"
+            target="_blank"
+            color="linear-gradient(to bottom, #0064e0 0%, #004cb0 100%)"
+            icon={FacebookIcon}
+          />
+          <Red
+            name="Instagram"
+            url="https://www.instagram.com/diegozr_04?stkn=ZDNlZDc0MzIxNw=="
+            color="radial-gradient(circle at 90% 107%, #fdf497 0%, #fdf497 5%, #fd5949, #d6249f 60%, #285aeb 90%)"
+            target="_blank"
+            icon={InstagramIcon}
+          />
+          <Red
+            name="Whatsapp"
+            color="linear-gradient(135deg, #25d366 0%, #1cbd55 50%, #075e54 100%)"
+            target="_blank"
+            icon={WhatsappIcon}
+            url="https://wa.me/+51984206545"
+          />
+          <Red
+            name="Discord"
+            class="Discord"
+            url="javascript:void(0);"
+            color="linear-gradient(135deg, #5865f2 , #5e52ff)"
+            icon={DiscordIcon}
+          />
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<script>
+  import Sonido from "../assets/audio_easter.mp3";
+
+  const discord = document.getElementsByClassName("Discord")[0];
+  const easter = document.getElementsByClassName("easter")[0];
+  const sonido = new Audio(Sonido);
+  sonido.volume = 0.3;
+  easter.addEventListener("click", function () {
+    sonido.play();
+  });
+
+  discord.addEventListener("click", () => {
+    console.log("test");
+    discord.textContent = "test";
+  });
+</script>
