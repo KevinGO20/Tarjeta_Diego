@@ -1,9 +1,9 @@
 ---
-const { name, color, url, icon: Icon, target } = Astro.props;
+const { name, color, url, icon: Icon, target, className } = Astro.props;
 ---
 
 <a
-  class="boton"
+  class=`boton ${className}`
   style={`background:${color}`}
   href={url}
   target={target}
@@ -37,5 +37,8 @@ const { name, color, url, icon: Icon, target } = Astro.props;
   .boton > span {
     width: 80px;
     font-size: 1rem;
+    
+
   }
+  
 </style>
